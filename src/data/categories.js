@@ -5,8 +5,10 @@ import { filteringExamples } from './filtering-examples';
 import { mathExamples } from './math-examples';
 import { transformationExamples } from './transformation-examples';
 import { utilityExamples } from './utility-examples';
+import { myExamples } from './my-examples';
 
 export const categories = {
+  'Reactive example': myExamples,
   'Creation Observables': creationExamples,
   'Conditional Operators': conditionalExamples,
   'Combination Operators': combinationExamples,

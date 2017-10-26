@@ -1,4 +1,4 @@
-import { div, span } from '@cycle/dom';
+import { div } from '@cycle/dom';
 
 import {
   renderElevation2After,
@@ -12,7 +12,7 @@ function renderOperatorLabel(label) {
     fontWeight: '400',
     fontSize: `${fontSize}rem`,
   }, fontCode);
-  return span('.operatorLabel', { style }, label);
+  return div('.operatorLabel', { style }, label);
 }
 
 export function renderOperatorBox(label) {
@@ -22,9 +22,9 @@ export function renderOperatorBox(label) {
     textAlign: 'center',
     position: 'relative',
   };
-  return div('.operatorBox', { style }, [
-    renderElevation2Before(),
-    renderOperatorLabel(label),
-    renderElevation2After(),
-  ]);
+  return div('.operatorBox', { style },
+    [renderElevation2Before()]
+      .concat(label.split("\n").map(renderOperatorLabel))
+      .concat(renderElevation2After())
+  );
 }

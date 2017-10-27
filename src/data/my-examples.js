@@ -3,6 +3,19 @@ import { evolve, merge } from 'ramda';
 
 export const myExamples = {
 
+  "A = B + C": {
+    label: "A = B + C",
+    inputs: [
+      [{t:5, c:2}, {t:15, c:30}, {t:25, c:22}, {t:35, c:5}, {t:45, c:60}, {t:55, c:1}, 80],
+      [{t:5, c:1}, {t:15, c:2}, {t:25, c:3}, {t:35, c:4}, {t:65, c:5}, 70]
+    ],
+    apply: function(inputs) {
+      return Observable.combineLatest(inputs[0], inputs[1],
+        (x, y) => x.content + y.content
+      );
+    }
+  },
+
   "Initial stream": {
     label: "",
     inputs: [
